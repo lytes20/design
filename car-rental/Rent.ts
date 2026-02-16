@@ -11,11 +11,11 @@ class Customer {
   address: Address;
 }
 class RentalRecord {
-  customer: Customer;
+  //   customer: Customer;
   startDate: Date;
   maxDuration: number;
   endDate: Date;
-  car: Car;
+  //   car: Car;
 }
 
 class Car {
