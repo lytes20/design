@@ -1,15 +1,3 @@
-class Address {
-  street: string;
-  city: string;
-  state: string;
-  zip: number;
-}
-
-class Customer {
-  phone: string;
-  email: string;
-  address: Address;
-}
 class RentalRecord {
   //   customer: Customer;
   startDate: Date;
