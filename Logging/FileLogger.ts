@@ -1,22 +1,14 @@
+import Logger from "./Logger";
 import LogMessage from "./LogMessage";
 
-export default class FileLogger {
-  log(message: LogMessage) {
-    const serialisedMessage = this.serializeMessage(message);
-    this.openFile();
-    this.writeLogMessage(serialisedMessage);
-    this.closFile();
-  }
-  serializeMessage(message: LogMessage): string {
-    return message.toString();
-  }
-  openFile() {
+export default class FileLogger extends Logger {
+  protected openLogRepository(): void {
     console.log("Opening file");
   }
-  writeLogMessage(message: string) {
-    console.log("Writing to file");
+  protected writeLogMessage(message: string): void {
+    console.log("Writing log");
   }
-  closFile() {
+  protected closeLogRepository(): void {
     console.log("Closing file");
   }
 }
