@@ -1,20 +1,29 @@
+import HistoryLogger from "./HistoryLogger";
+import Stock from "./Stock";
+import StockNotifier from "./StockNotifier";
+import Trader from "./Trader";
+
 export default class StockService {
-  changeStockValue(stockName: string, value: number) {}
-}
+  historyLogger: HistoryLogger;
+  stockNotifier: StockNotifier;
+  trader: Trader;
 
-class Stock {
-  stockName: string;
-  value: number;
-}
+  changeStockValue(stockName: string, value: number) {
+    const stock = new Stock(stockName, value);
+    this.historyLogger.log(stock);
+    this.stockNotifier.handleStockChange(stock);
+    this.trader.trade(stock);
+  }
 
-class Trader {
-  trade(stock: Stock) {}
-}
+  setHistoryLogger(historyLogger: HistoryLogger): void {
+    this.historyLogger = historyLogger;
+  }
 
-class StockNotifier {
-  handleStockChange(stock: Stock) {}
-}
+  setStockNotifier(stockNotifier: StockNotifier): void {
+    this.stockNotifier = stockNotifier;
+  }
 
-class HistoryLogger {
-  log(stock: Stock) {}
+  setTrader(trader: Trader): void {
+    this.trader = trader;
+  }
 }
