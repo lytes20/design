@@ -1,5 +1,6 @@
-import Product from "./Product";
-import SortStrategy from "./SortStrategy";
+import Product from './Product';
+import ReverseIterator from './ReverseIterator';
+import SortStrategy from './SortStrategy';
 
 export default class ProductCollection {
   private products: Product[] = [];
@@ -24,5 +25,9 @@ export default class ProductCollection {
 
   setSortStrategy(sortStrategy: SortStrategy): void {
     this.sortStrategy = sortStrategy;
+  }
+
+  reverseIterator(): Iterator<Product> {
+    return new ReverseIterator<Product>(this.products);
   }
 }
