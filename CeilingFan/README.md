@@ -4,4 +4,4 @@
 
 ## Patterns used in the drawing application
 
-- Strategy Pattern
+- State Pattern
